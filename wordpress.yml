@@ -1,0 +1,14 @@
+wordpress:
+  image: wordpress
+  cpu_shares: 100
+  mem_limit: 314572800
+  ports:
+    - "8080:80"
+  links:
+    - mysql
+mysql:
+  image: mysql
+  cpu_shares: 100
+  mem_limit: 314572800
+  environment:
+    MYSQL_ROOT_PASSWORD: password
