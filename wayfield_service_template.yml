@@ -1,6 +1,0 @@
-assignment06:
-  image: devopsfuturists903/travis:latest
-  cpu_shares: 100
-  mem_limit: 314572800
-  ports:
-    - "80:80"
