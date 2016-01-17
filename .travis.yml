@@ -4,7 +4,7 @@ services:
 install: true
 script:
   - docker build -t devopsfuturists903/travis .
-  - docker login -e="$DockerHubEmail" -u="$DockerHubUser" -p="$DockerHubPassword"
+  - docker login -e=$DockerHubEmail -u=$DockerHubUser -p=$DockerHubPassword
   - docker push devopsfuturists903/travis
 notifications:
   slack: devopsfuturists:1VftxKtU6FklLBlSlIqxqdi8
