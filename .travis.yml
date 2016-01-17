@@ -1,10 +1,15 @@
 sudo: required
 services:
-- docker
-after_success:
-- docker build -t devopsfuturists903/travis .
-- docker login -e="$DockerHubEmail" -u="$DockerHubUser" -p="$DockerHubPassword"
-- docker push devopsfuturists903/travis
+  - docker
+install: true
+script:
+  - docker build -t devopsfuturists903/travis .
+  - docker login -e="$DockerHubEmail" -u="$DockerHubUser" -p="$DockerHubPassword"
+  - docker push devopsfuturists903/travis
+notifications:
+  slack: devopsfuturists:1VftxKtU6FklLBlSlIqxqdi8
+    on_success: always
+    on_failure:always
 env:
   global:
   - secure: bWkCSoh8p0wve+oaawff4sZG4fdKKmNnd2SZ0Td4LlpiF36im2hQpTKvzpler88p/En0Jq0cqVncLsl9x1qlazlxiCATDtCd+OCW1J7AqCCTE94t3xKKaipqyJPul4kJGaUJNYrjStNORSFE6ctNW9a8UYJ7AEgnhaP63QV8vWwCd3wPOFTPecqpmNB0gSMFjtYC56sAXxzicL2yx/gHNU+dNseGXIq+E5gZcOByWq7ZbeUqIYIVEEHgsGsxFWaDefqMVzRbGGaXHFsuhMpkI3OXwR8eeEsDfAdLimKsFodvA7Kdba8mc2E07MYL5eMqlHpf+3AI88J8Uu6M8aIEldW3qXe9iOb2PGFvebpP5rDshNwRHOg1CBkxQ3+XY852ErH8Ery3f6jpfApCLuPk2i/kxcTvXjZ3Z/EEZ8JIMf/PpgsPO8uEKAASozAy6i5k/pgJ6hDWCp0KXSVUhBFx78HmTxF2BmoTt86XNSJUxMtuPPsqIbyfMxc65SwLQnmgRdqA975DzJsAFJ8IDutpIi9BjG3LRBZ+VUKCR7AOmyXVR5yfYNwWLzDYKEAjjRp6yU02pDk+mljuXqMFGWTsEsEFBKGUtLVhP6IBNXg17DHXaC3Q3BJ/vJuFxXttJBowbk1TUGLVm/jcdV7j4F47W8FNXg9Hbgh6fYLPNOpQfW8=
