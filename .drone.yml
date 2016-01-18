@@ -1,16 +1,4 @@
-image: dockerfile/nginx
+image: python
 script:
-  - echo hello world
-
-#image: ruby2.0.0
-#services:
-#  - library/postgres:9.4.4
-#script:
-  #- mkdir -p /tmp/bundle
-  #- bundle install -j8 --path /tmp/bundle 
-  #- cp config/database.drone.yml config/database.yml
-  ##- psql -c 'create database test;' -U postgres -h 127.0.0.1
-  #- bundle exec rake db.create db:schema:load
-  #- bundle exec rspec spec
-
-
+  - python helloworld.py
+  - echo Build Completed
